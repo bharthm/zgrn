@@ -1,0 +1,13 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" controllerName="grn.controller.login">
+<Page title="Login Page">
+<Text text="{local>/demo}"/>
+<f:SimpleForm editable="true" width="100%">
+<Label text="User Name"/>
+<Input id="un" width="40%"/>
+<Label text="Password"/>
+<Input id="pw" width="40%" type="Password"/>
+<Label/>
+<Button text="Login" width="40%" type="Accept" press="onLogin"/>
+</f:SimpleForm>
+</Page>
+</mvc:View>

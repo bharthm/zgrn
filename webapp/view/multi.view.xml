@@ -1,0 +1,57 @@
+<mvc:View controllerName="grn.controller.multi"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:t ="sap.ui.table"  displayBlock="true"    
+    xmlns:u="sap.ui.unified"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+
+<u:FileUploader id="FileUploaderId" sameFilenameAllowed="true" iconOnly="false" buttonOnly="true" fileType="XLSX,xlsx"
+icon="sap-icon://upload" iconFirst="true" style="Emphasized" change="onUpload"/>					
+
+<Table id="idDetail" items="{localModel>/items}" growing="true" growingThreshold="20">
+							<columns>  							
+								<Column>
+									<Label text="Billing Document"/>
+								</Column>
+								<Column>
+									<Label text="Customer"/>
+								</Column>								
+								<Column>
+									<Label text="GRN Number of Customer"/>
+								</Column>
+								<Column>
+									<Label text="GRN Date"/>
+								</Column>                                
+								<Column>
+									<Label text="GRN Qty"/>
+								</Column>
+								<Column>
+									<Label text="Material Number"/>
+								</Column>                              
+							</columns>
+<items>
+<ColumnListItem>    
+<cells>
+ <Text text="{localModel>VBELN}" />  
+ <Text text="{localModel>KUNRG}" />  
+ <Text text="{localModel>ZGRNNO_CUSTOMER}" />  
+ <Text text="{localModel>ZGRNNO_DATE}" />  
+ <Text text="{localModel>GRNQTY}" />  
+ <Text text="{localModel>MATNR}" />  
+</cells>
+</ColumnListItem>
+</items>
+</Table>    
+        <!-- </VBox> -->
+        <footer>
+            <Toolbar >
+                <ToolbarSpacer ></ToolbarSpacer>
+                <Button id="idSave" icon="sap-icon://save" press="onSave" text="Save" type="Accept"></Button>
+                <!-- <Button id="idDelete" enabled="false" icon="sap-icon://delete" press="onDelete" text="Delete" type="Reject"></Button> -->
+                <Button icon="sap-icon://cancel" press="onCancel" text="Clear" type="Emphasized"></Button>
+                <Button icon="sap-icon://refresh" press="onRef" text="Refresh" type="Attention"></Button>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

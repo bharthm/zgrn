@@ -1,0 +1,241 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "grn",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.13.2",
+      "toolsId": "6efa9f09-ee0c-4038-a0fe-0d491fac496d"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZCAPM_GRN_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "zsem_obj-display": {
+          "semanticObject": "zsem_obj",
+          "action": "display",
+          "title": "{{flpTitle}}",
+          "subTitle": "{{flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.123.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "grn.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "local":{
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "uri": "model/mockData/welcome.json",
+        "preload": true        
+      }      
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "grn.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteView1",
+          "pattern": ":?query:",
+          "target": [
+            "black","deadpool"
+          ]
+        },        
+        {
+          "name": "Main",
+          "pattern": "Main",
+          "target": [
+            "optimus","prime"
+          ]
+        },
+        {
+          "name": "superman",
+          "pattern": "view2",
+          "target":["optimus","megnetron"]
+      },
+      {
+        "name": "antman",
+        "pattern": "login",
+        "target":["black","panther"]
+    },      {
+          "name": "wonderwomen",
+          "pattern": "view3",
+          "target":["optimus","bumbulbee"]
+      },{
+          "name": "ironman",
+          "pattern": "Part",
+          "target":["optimus","declathon"]
+      },
+      {
+          "name": "hulk",
+          "pattern": "shift",
+          "target":["optimus","blackwidow"]
+      } ,
+      {
+          "name": "batman",
+          "pattern": "machine",
+          "target":["optimus","captain"]
+      },
+      {
+          "name": "thanos",
+          "pattern": "preview",
+          "target":["optimus","TargetView1"]
+      }                                           
+      ],
+      "targets": {
+        "optimus": {
+          "viewType": "XML",          
+          "controlAggregation": "masterPages",
+          "viewId": "idlhs",
+          "viewName": "lhs"
+        },     
+        "black": {
+          "viewType": "XML",          
+          "controlAggregation": "masterPages",
+          "viewId": "idlogin",
+          "viewName": "start"
+        },      
+        "panther": {
+          "viewType": "XML",          
+          "controlAggregation": "detailPages",
+          "viewId": "idPanther",
+          "viewName": "login"
+        },               
+        "TargetView1": {
+          "viewType": "XML",
+          "transition": "slide",
+          "controlAggregation": "detailPages",
+          "viewId": "idMulti",
+          "viewName": "multi"
+        },
+        "prime": {
+          "viewType": "XML",          
+          "controlAggregation": "detailPages",
+          "viewId": "idempt",
+          "viewName": "Empty"
+        }, 
+        "deadpool": {
+          "viewType": "XML",          
+          "controlAggregation": "detailPages",
+          "viewId": "idwel",
+          "viewName": "welcome"
+        },                  
+        "megnetron":{
+          "viewName": "View2",
+          "viewId": "idView2",
+          "controlAggregation": "detailPages"
+      },
+      "bumbulbee":{
+          "viewName": "View3",
+          "viewId": "idView3",
+          "controlAggregation": "detailPages"
+      },
+      "blackwidow":{
+          "viewName": "single",
+          "viewId": "idSingle",
+          "controlAggregation": "detailPages"
+      },
+      "batwomen":{
+          "viewName": "machine",
+          "viewId": "idMachine",
+          "controlAggregation": "detailPages"
+      },
+      "captain":{
+          "viewName": "preview",
+          "viewId": "idPrvw",
+          "controlAggregation": "detailPages"
+      },
+      "declathon":{
+          "viewName": "part",
+          "viewId": "idPart",
+          "controlAggregation": "detailPages"
+      }                       
+      }
+    },
+    "rootView": {
+      "viewName": "grn.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

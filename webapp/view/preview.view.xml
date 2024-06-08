@@ -1,0 +1,62 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+          xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" displayBlock="true"
+          xmlns:l="sap.ui.layout"
+          xmlns:t ="sap.ui.table"          
+          controllerName="grn.controller.previewC">
+    <Page title="Preview Production Entry">
+
+<t:Table id="idTable"  rows="{/grndetailsSet}" visibleRowCount="5" selectionMode="Single" rowSelectionChange="onRowSelect">
+<t:toolbar>
+</t:toolbar>
+<t:columns >
+<t:Column label="Billing Document">
+<t:template>
+    <Text text="{VBELN}" />    
+</t:template>
+</t:Column>
+
+<t:Column label="GRN Number of Customer">
+<t:template>
+    <Text text="{ZGRNNO_CUSTOMER}" />    
+</t:template>
+</t:Column>
+
+<t:Column label="GRN Date">
+<t:template>
+    <Text text="{ZGRNNO_DATE}"/>    
+</t:template>
+</t:Column>
+
+<t:Column label="GRN Quantity">
+<t:template>
+    <Text text="{GRNQTY}" />    
+</t:template>
+</t:Column>
+
+<t:Column label="Part Number">
+<t:template>
+    <Text text="{MATNR}" />    
+</t:template>
+</t:Column>
+
+<t:Column label="Customer">
+<t:template>
+    <Text text="{KUNRG}" />    
+</t:template>
+</t:Column>
+
+
+</t:columns>
+</t:Table>
+
+            <Image id="myPhoto" width="40%" height="40%"></Image>        
+        <!-- <footer>
+            <Toolbar >
+                <ToolbarSpacer ></ToolbarSpacer>
+                <Button id="idSave" icon="sap-icon://save" press="onSave" text="Save" type="Accept"></Button>
+                <Button id="idDelete" enabled="false" icon="sap-icon://delete" press="onDelete" text="Delete" type="Reject"></Button>
+                <Button icon="sap-icon://cancel" press="onCancel" text="Clear" type="Emphasized"></Button>
+            </Toolbar>
+        </footer> -->
+    </Page>
+</mvc:View>
